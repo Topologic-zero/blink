@@ -1,0 +1,83 @@
+30  
+
+31void setup() { 
+
+32  
+
+33 //start serial connection 
+
+34  
+
+35 Serial.begin(9600); 
+
+36  
+
+37 //configure pin 2 as an input and enable the internal pull-up resistor 
+
+38  
+
+39 pinMode(2, INPUT_PULLUP); 
+
+40  
+
+41 pinMode(13, OUTPUT); 
+
+42  
+
+43} 
+
+44  
+
+45void loop() { 
+
+46  
+
+47 //read the pushbutton value into a variable 
+
+48  
+
+49 int sensorVal = digitalRead(2); 
+
+50  
+
+51 //print out the value of the pushbutton 
+
+52  
+
+53 Serial.println(sensorVal); 
+
+54  
+
+55 // Keep in mind the pull-up means the pushbutton's logic is inverted. It goes 
+
+56  
+
+57 // HIGH when it's open, and LOW when it's pressed. Turn on pin 13 when the 
+
+58  
+
+59 // button's pressed, and off when it's not: 
+
+60  
+
+61 if (sensorVal == HIGH) { 
+
+62  
+
+63 digitalWrite(13, LOW); 
+
+64  
+
+65 } else { 
+
+66  
+
+67 digitalWrite(13, HIGH); 
+
+68  
+
+69 } 
+
+70} 
+
+ 
